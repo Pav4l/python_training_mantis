@@ -9,4 +9,4 @@ def test_delete_project(app, db, json_project):
     project = random.choice(old_project)
     app.project.delete_project_by_name(project.name)
     new_project = db.get_project_list()
-    assert len(old_project) - 1 == len(new_project)
+    assert len(app.soap.get_list_projects("administrator", "root")) == len(new_project)
