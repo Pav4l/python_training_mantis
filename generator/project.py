@@ -34,7 +34,7 @@ def random_view():
     return random.choice(status)
 
 testdata = [
-    Project(name=random_string("name", 3), status=random_status(), view_state=random_view(), description=random_string("description", 3))
+    Project(name=random_string("name", 5), status=random_status(), view_state=random_view(), description=random_string("description", 5))
     for i in range(n)
 ]
 

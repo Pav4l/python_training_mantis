@@ -9,6 +9,14 @@ class ProjectHelper:
         wd.find_element_by_link_text("Manage").click()
         wd.find_element_by_link_text("Manage Projects").click()
 
+    def open_add_project_page(self):
+        wd = self.app.wd
+        wd.find_element_by_xpath("//input[@value='Add Project']").click()
+
+    def open_create_project_page(self):
+        wd = self.app.wd
+        wd.find_element_by_xpath("//input[@value='Create New Project']").click()
+
     def fill_in_project(self, project):
         wd = self.app.wd
         wd.find_element_by_name("name").click()
@@ -22,26 +30,18 @@ class ProjectHelper:
         wd.find_element_by_name("description").clear()
         wd.find_element_by_name("description").send_keys(project.description)
 
-    def add_project(self):
-        wd = self.app.wd
-        wd.find_element_by_xpath("//input[@value='Add Project']").click()
-
-    def create_project(self):
-        wd = self.app.wd
-        wd.find_element_by_xpath("//input[@value='Create New Project']").click()
-
-    def delete_project(self):
+    def open_delete_project_page(self):
         wd = self.app.wd
         wd.find_element_by_xpath("//input[@value='Delete Project']").click()
 
     def create_new_project(self, project):
         self.open_manage_project_page()
-        self.create_project()
+        self.open_create_project_page()
         self.fill_in_project(project)
-        self.add_project()
+        self.open_add_project_page()
 
     def delete_project_by_name(self, name):
         wd = self.app.wd
         wd.find_element_by_link_text(name).click()
-        self.delete_project()
-        self.delete_project()
+        self.open_delete_project_page()
+        self.open_delete_project_page()

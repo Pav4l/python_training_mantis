@@ -1,7 +1,7 @@
 [
   {
     "py/object": "model.project.Project",
-    "name": "New_problem",
+    "name": "nameR",
     "status": "development",
     "view_state": "private",
     "description": "description",
